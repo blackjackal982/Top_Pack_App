@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% if repositories %}
+<div class="container">
+{% for repo in repositories %}
+<div class="box has-background-white-ter">
+        <div>
+            Repo Name           : {{repo.0}}
+        </div>
+        <div>
+            Number of stars     : {{repo.1}}
+        </div>
+</div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

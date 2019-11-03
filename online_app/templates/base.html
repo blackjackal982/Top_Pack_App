@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'bulma.css' %}">
+     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-cartesian.min.js"></script>
+    <title>TOP PACK</title>
+</head>
+<body>
+<script src="{% static 'bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+<section class="hero is-success">
+    <nav class="is-top-fixed is-success">
+        <div class="has-text-centered is-size-5">TOP PACK APP</div>
+        <div class="btn btn-dark is-pulled-left"><a href="{% url 'home' reload=True %}" >Home</a></div>
+        <div class="btn btn-light is-pulled-right"><a href="{% url 'searchbar' %}">Search</a></div>
+        <div class="btn btn-dark is-pulled-right"><a href="{% url 'top_packs' %}">TOP PACKAGES</a></div>
+    </nav>
+</section>
+{% block content %}
+{% endblock %}
+</body>
+</html>

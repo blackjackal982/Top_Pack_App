@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% if results %}
+<div class="container">
+{% for repo in results %}
+<div class="{% if repo.imported %}box has-background-warning{% else %} box has-background-white-ter{% endif %}">
+        <div>
+            Owner : {{repo.owner.login}}
+        </div>
+        <div>
+            <i class="fa fa-at"></i>
+            <i>Repository:</i>&nbsp;{{repo.full_name}}
+        </div>
+        <div>
+            Forks : {{repo.forks_count}}
+        </div>
+        <div>
+            Stars : {{repo.stargazers_count}}
+        </div>
+    <a class="btn btn-primary" href="{% url 'import_repo' owner=repo.owner.login repo_name=repo.name stars=repo.stargazers_count %}">Import</a>
+</div>
+    {% endfor %}
+</div>
+
+{% endif %}
+{% endblock %}

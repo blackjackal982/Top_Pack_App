@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div id="container"></div>
+{{repo_names}}
+<style>
+     html,body,#container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+</style>
+<script>
+anychart.onDocumentReady(function() {
+        console.log("{{repo_names}}");
+        // set the data
+        var data = {
+            header: ["Repo Name", "Stars"],
+            rows:"{{repo_names}}"
+            };
+
+        var dataSet = anychart.data.set(data);
+        var chart = anychart.column();
+        chart.padding([10, 40, 5, 20]);
+        var series = chart.column(data);
+        console.log(chart);
+        chart.container("container");
+        chart.draw();
+      });
+</script>
+
+{% endblock %}
